@@ -6,11 +6,14 @@
     
     <%= f.label :release_year %>
     <%= f.text_field :release_year %><br/>
+    
+    <%= f.collection_select(:artist_id, Artist.all, :id, :artist_name, prompt: true) %>
   
     <%= f.fields_for :genre, @song.build_genre do |sec_form| %>
       <%= sec_form.label :genre %>
       <%= sec_form.text_field :genre_name %><br/>
     <% end %>
+  
   
     <%= f.submit %>
   <% end %>

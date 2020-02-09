@@ -1,6 +1,7 @@
 class SongsController < ApplicationController
 
     def index
+        @song = Song.find_by_id(params[:id])
           if @artist = Artist.find_by_id(params[:artist_id])
               @songs = @artist.songs.all
           else
@@ -11,7 +12,9 @@ class SongsController < ApplicationController
   
       def new
           if @artist = Artist.find_by_id(params[:artist_id])
-              @song = @artist.songs.build
+            @artist.songs = params[:song]  
+            @song = @artist.songs.build
+              
           else
               @song = Song.new
           end    
@@ -40,6 +43,6 @@ class SongsController < ApplicationController
       private
       
       def song_params
-          params.require(:song).permit(:title, :album_name, :artist_name, :release_year, genre_attributes: [:genre_name])
+          params.require(:song).permit(:title, :album_name, :artist_id, :release_year, genre_attributes: [:genre_name])
       end
   end
