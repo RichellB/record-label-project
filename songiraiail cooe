@@ -1,0 +1,12 @@
+
+[1mFrom:[0m /mnt/c/Users/riche/record-label-project/app/views/songs/index.html.erb @ line 29 #<Class:0x00007fffefb85b68>#_app_views_songs_index_html_erb___1707933461976030382_70150439461420:
+
+    [1;34m24[0m:           <%= link_to ' Edit', edit_song_path(song) %> |
+    [1;34m25[0m:           <%= link_to ' Delete', song, method: :delete, data: { confirm: 'For real?' } %>
+    [1;34m26[0m:         </td>
+    [1;34m27[0m:       </tr>
+    [1;34m28[0m:     <% end %>
+ => [1;34m29[0m:     <%= binding.pry %>
+    [1;34m30[0m:   </tbody>
+    [1;34m31[0m: </table>
+

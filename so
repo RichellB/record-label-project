@@ -1,0 +1,15 @@
+
+[1mFrom:[0m /mnt/c/Users/riche/record-label-project/app/views/songs/index.html.erb @ line 22 #<Class:0x00007fffc2713f58>#_app_views_songs_index_html_erb___3564386253527699690_70368227814040:
+
+    [1;34m17[0m:     <% @songs.each do |song| %>
+    [1;34m18[0m:       <tr>
+    [1;34m19[0m:         <td><%= song.title %></td>
+    [1;34m20[0m:         <td><%= song.release_year %></td>
+    [1;34m21[0m:         <td><%= song.artist.artist_name %></td>
+ => [1;34m22[0m:         <%= binding.pry %>
+    [1;34m23[0m:         <td>
+    [1;34m24[0m:           <%= link_to ' View', song %> 
+    [1;34m25[0m:           <%= link_to ' Edit', edit_song_path(song) %> |
+    [1;34m26[0m:           <%= link_to ' Delete', song, method: :delete, data: { confirm: 'For real?' } %>
+    [1;34m27[0m:         </td>
+

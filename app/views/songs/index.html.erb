@@ -19,6 +19,7 @@
         <td><%= song.title %></td>
         <td><%= song.release_year %></td>
         <td><%= song.artist.artist_name %></td>
+      
         <td>
           <%= link_to ' View', song %> 
           <%= link_to ' Edit', edit_song_path(song) %> |
@@ -26,5 +27,6 @@
         </td>
       </tr>
     <% end %>
+    
   </tbody>
 </table>
