@@ -35,7 +35,7 @@ class SongsController < ApplicationController
 
       def update 
         @song = Song.find_by_id(params[:id])
-        @song.update(titl: params[:song][:title][:album_name])
+        @song.update(title: params[:song][:title])
         redirect_to song_path(@song)
       end 
   
@@ -46,7 +46,8 @@ class SongsController < ApplicationController
       def destroy 
         @song = Song.find_by_id(params[:id])
         @song.destroy
-        redirect_to songs_path
+
+        #redirect_to songs_path
       end 
   
       private
