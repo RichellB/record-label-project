@@ -4,7 +4,7 @@ class ArtistsController < ApplicationController
 
     def index
         if user_signed_in?
-           @artists = current_user.artists
+           @artists = current_user.artists.alphabetical_order
         end 
         
        end
@@ -21,6 +21,10 @@ class ArtistsController < ApplicationController
            else
                render :new
            end
+       end
+
+       def show
+           @artist = Artist.find_by_id(params[:id])
        end
    
        private
