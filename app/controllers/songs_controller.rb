@@ -12,7 +12,7 @@ class SongsController < ApplicationController
   
       def new
           if @artist = Artist.find_by_id(params[:artist_id])
-            @artist.songs = params[:song]  
+            @artist.songs = params[:song]  #Is this needed?
             @song = @artist.songs.build
               
           else
@@ -32,12 +32,21 @@ class SongsController < ApplicationController
       def edit 
         @song = Song.find_by_id(params[:id])
       end
+
+      def update 
+        @song = Song.find_by_id(params[:id])
+        @song.update(titl: params[:song][:title][:album_name])
+        redirect_to song_path(@song)
+      end 
   
       def show
           @song = Song.find_by_id(params[:id])
       end
 
       def destroy 
+        @song = Song.find_by_id(params[:id])
+        @song.destroy
+        redirect_to songs_path
       end 
   
       private
