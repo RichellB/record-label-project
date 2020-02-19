@@ -1,6 +1,13 @@
 <h1>Artists In Library:</h1>
 <ul>
   <% @artists.each do |artist| %>
-    <li><%= link_to artist.artist_name, artist_path(artist) %></li>
+    <%= link_to artist.artist_name, artist_path(artist) %></li>
+
+    <p><% if Artist.album_ready(artist) %>
+        <p>Is ready for an album</p> 
+    <% end %>
+    </p>
   <% end %>
+
 </ul>
+

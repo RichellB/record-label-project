@@ -1,7 +1,6 @@
 class Artist < ActiveRecord::Base
     has_many :songs
     has_many :genres, through: :songs
-    #has_many :users, through: :songs
     belongs_to :user
 
     
@@ -13,5 +12,16 @@ class Artist < ActiveRecord::Base
     def self.alphabetical_order
       order(:artist_name)
     end
-  
-  end
+
+    def self.album_ready(artist)
+      @artists = Artist.all 
+      @artists.each_with_index do |artist_s, i|
+        if artist_s.songs.length[i] > 5
+          return true
+        else 
+          return artist_s
+        end 
+      end
+    end
+
+end 
